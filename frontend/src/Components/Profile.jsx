@@ -92,7 +92,7 @@ const Profile = () => {
                
               </div>
               <div className="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
-                <a href={`${userData.resume}`} target="_blank" rel="noopener noreferrer">
+                <a href={`${backendUrl}${userData.resume}`} target="_blank" rel="noopener noreferrer">
               <button
                 //onClick={handleLogout}
                 type="button"

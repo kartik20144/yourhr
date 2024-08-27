@@ -32,7 +32,7 @@ const UserSection = ({
       {isAdmin === false && (
         <div className="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
           <a
-            href={`${resume}`}
+            href={`${backendUrl}${resume}`}
             target="_blank"
             rel="noopener noreferrer"
           >

@@ -16,18 +16,22 @@ dotenv.config();
 connectDB();
 const app = express();
 
-// app.use(cors({
-//   origin: 'http://localhost:5173', // Replace with your frontend domain
-//   credentials: true, // Allow credentials
-// }));
 app.use(cors({
-  origin: 'https://yourhr-6s39.onrender.com', // Replace with your frontend domain
+  origin: 'http://localhost:5173', // Replace with your frontend domain
   credentials: true, // Allow credentials
 }));
+// app.use(cors({
+//   origin: 'https://yourhr-6s39.onrender.com', // Replace with your frontend domain
+//   credentials: true, // Allow credentials
+// }));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
+
+app.use("/api/users", userRoutes);
+app.use("/api/upload", uploadRoutes);
+app.use("/api/jobs", jobRoutes);
 
 const __dirname = path.resolve();
 app.use("/uploads", express.static(path.join(__dirname, "/uploads")));
@@ -44,9 +48,7 @@ if (process.env.NODE_ENV === "production") {
   });
 }
 
-  app.use("/api/users", userRoutes);
-  app.use("/api/upload", uploadRoutes);
-  app.use("/api/jobs", jobRoutes);
+
 
 app.use(notFound);
 app.use(errorHandler);
