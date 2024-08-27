@@ -68,7 +68,6 @@ const Card = ({ job }) => {
   };
 
 const Jobs = () => {
-    const backendUrl = "http://localhost:5173";
 
   const [jobData, setJobData] = useState([]);
 
