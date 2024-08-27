@@ -4,9 +4,10 @@
   "type": "module",
   "main": "server.js",
   "scripts": {
+    "start": "node backend/server.js",
     "server": "nodemon backend/server.js --ignore './frontend/'",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node backend/server.js",
+    "build":"npm install && npm install --prefix frontend && npm run build --prefix frontend",
     "data:import": "node backend/seeder.js",
     "data:destroy": "node backend/seeder.js -d"
   },
