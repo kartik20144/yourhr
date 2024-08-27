@@ -9,17 +9,10 @@ Frontend- React.js
 Backend- Node.js, Express.js
 Database- MongoDB
 
-To use this project, first clone the git repository 
-https://github.com/kartik20144/yourhr.git
+To use this project, first clone the git repository --> https://github.com/kartik20144/yourhr.git
 
-Then install dependendencies in root folder using
-npm install
-Then go to frontend folder and again install dependencies using
-npm install
+Then install dependendencies in root folder using --> npm install. Then go to frontend folder and again install dependencies using --> npm install
 
-Now in the root folder run server using
-npm run server
-And in frontend folder run frontend using
-npm run dev
+Now in the root folder run server using --> npm run server and in frontend folder run frontend using --> npm run dev
 
 This project is deployed on free hosting service Render.
