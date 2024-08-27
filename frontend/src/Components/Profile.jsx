@@ -5,7 +5,7 @@ import axios from "axios"
 
 
 const Profile = () => {
-    const backendUrl = "http://localhost:5000";
+  const backendUrl = import.meta.env.VITE_BACKEND_URL;
     const [userData, setUserData] = useState([]);
 
     useEffect(() => {
@@ -92,7 +92,7 @@ const Profile = () => {
                
               </div>
               <div className="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
-                <a href={`${backendUrl}${userData.resume}`} target="_blank" rel="noopener noreferrer">
+                <a href={`${userData.resume}`} target="_blank" rel="noopener noreferrer">
               <button
                 //onClick={handleLogout}
                 type="button"

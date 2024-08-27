@@ -32,7 +32,7 @@ const UserSection = ({
       {isAdmin === false && (
         <div className="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
           <a
-            href={`${backendUrl}${resume}`}
+            href={`${resume}`}
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -55,7 +55,7 @@ const AllUser = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  const backendUrl = "http://localhost:5000";
+  const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
   useEffect(() => {
     // Fetch blogs from the API
