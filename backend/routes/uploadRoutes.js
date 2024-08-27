@@ -1,3 +1,52 @@
+// import path from 'path';
+// import express from 'express';
+// import multer from 'multer';
+
+// const router = express.Router();
+
+// const storage = multer.diskStorage({
+//   destination(req, file, cb) {
+//     cb(null, 'uploads/');
+//   },
+//   filename(req, file, cb) {
+//     cb(null, `${file.fieldname}-${Date.now()}${path.extname(file.originalname)}`);
+//   },
+// });
+
+// function fileFilter(req, file, cb) {
+//   const filetypes = /jpe?g|png|webp/;
+//   const mimetypes = /image\/jpe?g|image\/png|image\/webp/;
+
+//   const extname = filetypes.test(path.extname(file.originalname).toLowerCase());
+//   const mimetype = mimetypes.test(file.mimetype);
+
+//   if (extname && mimetype) {
+//     cb(null, true);
+//   } else {
+//     cb(new Error('Images only!'), false);
+//   }
+// }
+
+// const upload = multer({ storage, fileFilter });
+// const uploadSingleImage = upload.single('image');
+
+// router.post('/', (req, res) => {
+  
+//   uploadSingleImage(req, res, function (err) {
+//     if (err) {
+//       return res.status(400).send({ message: err.message });
+//     }
+
+//     const imagePath = `/${req.file.path.replace(/\\/g, '/')}`;
+
+//     res.status(200).send({
+//       message: 'Image uploaded successfully',
+//       imagePath: imagePath,
+//     });
+//   });
+// });
+
+// export default router;
 import path from 'path';
 import express from 'express';
 import multer from 'multer';
@@ -14,8 +63,8 @@ const storage = multer.diskStorage({
 });
 
 function fileFilter(req, file, cb) {
-  const filetypes = /jpe?g|png|webp/;
-  const mimetypes = /image\/jpe?g|image\/png|image\/webp/;
+  const filetypes = /jpe?g|png|webp|pdf|doc|docx/;
+  const mimetypes = /image\/jpe?g|image\/png|image\/webp|application\/pdf|application\/msword|application\/vnd.openxmlformats-officedocument.wordprocessingml.document/;
 
   const extname = filetypes.test(path.extname(file.originalname).toLowerCase());
   const mimetype = mimetypes.test(file.mimetype);
@@ -23,25 +72,24 @@ function fileFilter(req, file, cb) {
   if (extname && mimetype) {
     cb(null, true);
   } else {
-    cb(new Error('Images only!'), false);
+    cb(new Error('Only images, PDFs, and Word documents are allowed!'), false);
   }
 }
 
 const upload = multer({ storage, fileFilter });
-const uploadSingleImage = upload.single('image');
+const uploadSingleFile = upload.single('resume');
 
 router.post('/', (req, res) => {
-  
-  uploadSingleImage(req, res, function (err) {
+  uploadSingleFile(req, res, function (err) {
     if (err) {
       return res.status(400).send({ message: err.message });
     }
 
-    const imagePath = `/${req.file.path.replace(/\\/g, '/')}`;
+    const resumePath = `/${req.file.path.replace(/\\/g, '/')}`;
 
     res.status(200).send({
-      message: 'Image uploaded successfully',
-      imagePath: imagePath,
+      message: 'File uploaded successfully',
+      resumePath: resumePath,
     });
   });
 });

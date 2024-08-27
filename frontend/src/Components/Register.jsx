@@ -16,7 +16,7 @@ const Register = () => {
     e.preventDefault();
 
     const formData = new FormData();
-    formData.append("image", resume);
+    formData.append("resume", resume);
 
     const uploadResponse = await axios.post("/api/upload", formData, {
       headers: {
@@ -25,14 +25,14 @@ const Register = () => {
       withCredentials: true,
     });
 
-    const imagePath = uploadResponse.data.imagePath;
+    const resumePath = uploadResponse.data.resumePath;
 
     const userData = {
       firstName,
       lastName,
       email,
       password,
-      resume: imagePath,
+      resume: resumePath,
     };
 
     

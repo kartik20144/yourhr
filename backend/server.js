@@ -8,6 +8,7 @@ import cors from 'cors';
 import cookieParser from "cookie-parser";
 import userRoutes from "./routes/userRoutes.js";
 import uploadRoutes from "./routes/uploadRoutes.js";
+import jobRoutes from "./routes/jobRoutes.js";
 
 
 
@@ -41,6 +42,7 @@ if (process.env.NODE_ENV === "production") {
 
   app.use("/api/users", userRoutes);
   app.use("/api/upload", uploadRoutes);
+  app.use("/api/jobs", jobRoutes);
 
 app.use(notFound);
 app.use(errorHandler);

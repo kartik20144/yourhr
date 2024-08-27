@@ -27,6 +27,8 @@ router
   .get(protect, admin, getUserById)
   .put(protect, admin, updateUser);
 
+  router.route('/admin/users').get(protect, admin, getUsers)
+
   //router.route('/isAdmin').get(protect, admin, getUsers)
 
 

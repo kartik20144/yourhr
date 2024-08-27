@@ -7,6 +7,9 @@ import Navbar from "./Components/Navbar";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Login from "./Components/Login";
 import Register from "./Components/Register";
+import Profile from "./Components/Profile";
+import Jobs from "./Components/Jobs";
+import Candidates from "./Components/Candidates";
 
 function App() {
   const router = createBrowserRouter([
@@ -15,6 +18,7 @@ function App() {
       element: (
         <>
           <Navbar />
+          <Jobs />
         </>
       ),
     },
@@ -31,6 +35,24 @@ function App() {
       element: (
         <>
           <Register />
+        </>
+      ),
+    },
+    {
+      path: "/profile",
+      element: (
+        <>
+        <Navbar />
+        <Profile />
+        </>
+      ),
+    },
+    {
+      path: "/admin/candidates",
+      element: (
+        <>
+        <Navbar />
+        <Candidates />
         </>
       ),
     },
