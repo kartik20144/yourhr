@@ -16,8 +16,12 @@ dotenv.config();
 connectDB();
 const app = express();
 
+// app.use(cors({
+//   origin: 'http://localhost:5173', // Replace with your frontend domain
+//   credentials: true, // Allow credentials
+// }));
 app.use(cors({
-  origin: 'http://localhost:5173', // Replace with your frontend domain
+  origin: 'https://yourhr-6s39.onrender.com', // Replace with your frontend domain
   credentials: true, // Allow credentials
 }));
 
